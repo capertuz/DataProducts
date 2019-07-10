@@ -1,0 +1,52 @@
+SwissApp Pitch
+========================================================
+author: Carlos Pertuz
+date: 07/07/2019
+autosize: true
+transition: rotate
+
+<small> 
+Coursera Data Science Specialization
+</small>
+
+Intro
+========================================================
+transition: linear
+
+Exploratory Analysis is the first step on any data science
+project.
+
+Having tools that allow us to quickly visualize the data increase
+our chances the select the right model to solve our problem.
+
+This app was conceived to check the different relationships of the swiss dataset,
+by entering different combinations, the data scientist can get an idea of how the 
+variables depend (or not) on each other.
+
+Swiss Dataset
+========================================================
+The following is a snapshot of the dataset selected for this project
+
+```{r}
+str(swiss)
+```
+
+Plot
+========================================================
+The following is the default plot displayed by the App
+
+```{r, echo=FALSE, fig.align = "center", fig.width = 10}
+library(ggplot2)
+           
+            p <- ggplot(swiss, aes_string(x=swiss$Agriculture, y=swiss$Fertility, colour=swiss$Catholic)) + geom_point()
+                p <- p + geom_smooth(method = "lm", color = "red") + labs(colour = "Catholic", y= "Fertility", x= "Agriculture")
+           
+            print(p)
+```
+
+Links
+========================================================
+type: section
+
+- Application: https://capertuz.shinyapps.io/swissapp/
+- Github: https://github.com/capertuz/DataProducts
